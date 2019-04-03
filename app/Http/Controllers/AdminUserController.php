@@ -9,6 +9,7 @@ use App\Photo;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Session;
 
 class AdminUserController extends Controller
 {
@@ -112,7 +113,7 @@ class AdminUserController extends Controller
         }
         else {
             $input = $request->all();
-            $input['password'] = bcrypt($request->passwod);
+            $input['password'] = bcrypt($request->password);
         }
 
         if ($file = $request->file('photo_id')) {
@@ -134,7 +135,11 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        unlink(public_path() . $user->photo->file);
+        $user->delete();
+        Session::flash('user_deleted', 'User has been deleted');
+        return redirect('admin/users');
     }
     
 }

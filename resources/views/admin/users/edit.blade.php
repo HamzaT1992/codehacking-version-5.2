@@ -41,7 +41,12 @@
             @include('includes.form-error', ['value' => 'password_confirmation'])
         </div>
         <div class="form-group">
-            {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Save', ['class' => 'btn btn-primary col-xs-4']) !!}
+        </div>
+        {!! Form::close() !!}
+        {!! Form::open(['method' => 'DELETE', 'action' => ['AdminUserController@destroy', $user->id]]) !!}
+        <div class="form-group">
+            {!! Form::submit('Delete', ['class' => 'btn btn-danger col-xs-4 col-xs-offset-4']) !!}
         </div>
         {!! Form::close() !!}
     </div>

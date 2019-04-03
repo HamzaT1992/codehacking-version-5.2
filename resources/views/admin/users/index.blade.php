@@ -2,6 +2,10 @@
 
 @section('content')
     <h1>Users page</h1>
+
+    @if (Session::has('user_deleted'))
+        <p class="alert alert-success alert-dismissible">{{ session('user_deleted') }}</p>
+    @endif
     <table class="table">
         <thead>
             <tr>
