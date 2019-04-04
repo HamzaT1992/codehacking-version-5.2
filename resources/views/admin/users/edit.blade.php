@@ -6,7 +6,7 @@
         <img class="img-responsive img-rounded" src="{{ $user->photo ? $user->photo->file : 'http://placehold.it/400x400?text=No Photo' }}" alt="">
     </div>
     <div class="col-sm-9">
-        {!! Form::model($user, ['method' => 'PATCH', 'action' => ['AdminUserController@update', $user->id], 'files' => true]) !!}
+        {!! Form::model($user, ['method' => 'PATCH', 'action' => ['AdminUsersController@update', $user->id], 'files' => true]) !!}
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
             {!! Form::label('name', 'Name') !!}
             {!! Form::text('name', null,['class' => 'form-control']) !!}
@@ -28,7 +28,7 @@
         </div>
         <div class="form-group">
                 {!! Form::label('photo_id', 'Photo') !!}
-                {!! Form::file('photo_id', ['class' => 'form-control']) !!}
+                {!! Form::file('photo_id', ['class' => 'form-control-file']) !!}
             </div>
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             {!! Form::label('password', 'New Password') !!}
@@ -44,7 +44,7 @@
             {!! Form::submit('Save', ['class' => 'btn btn-primary col-xs-4']) !!}
         </div>
         {!! Form::close() !!}
-        {!! Form::open(['method' => 'DELETE', 'action' => ['AdminUserController@destroy', $user->id]]) !!}
+        {!! Form::open(['method' => 'DELETE', 'action' => ['AdminUsersController@destroy', $user->id]]) !!}
         <div class="form-group">
             {!! Form::submit('Delete', ['class' => 'btn btn-danger col-xs-4 col-xs-offset-4']) !!}
         </div>

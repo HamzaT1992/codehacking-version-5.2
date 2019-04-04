@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Session;
 
-class AdminUserController extends Controller
+class AdminUsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -56,8 +56,7 @@ class AdminUserController extends Controller
         $input = $request->all();
         
         if ($file = $request->file('photo_id')) {
-            $name = time().$file->getClientOriginalName();
-            $file->move('images', $name);
+            $name = Photo::addImage($file);
             $photo = Photo::create(['file' => $name]);
             $input['photo_id'] = $photo->id;             
         }

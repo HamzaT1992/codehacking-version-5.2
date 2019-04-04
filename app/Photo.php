@@ -12,4 +12,10 @@ class Photo extends Model
     public function getFileAttribute($photo) {
         return '/images/' . $photo;
     }
+
+    public static function addImage($file) {
+        $name = time() . $file->getClientOriginalName();
+        $file->move('images', $name);
+        return $name;
+    }
 }
