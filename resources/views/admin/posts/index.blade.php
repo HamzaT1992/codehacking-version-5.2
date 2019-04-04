@@ -3,13 +3,14 @@
 @section('content')
     <h1>Posts</h1>
     @if (Session::has('post_deleted'))
-        <p class="alert alert-success">{{ session('user_deleted') }}</p>
+        <p class="alert alert-success">{{ session('post_deleted') }}</p>
     @endif
     <table class="table">
         <thead>
             <tr>
                 <th>Photo</th>
                 <th>Title</th>
+                <th>Body</th>
                 <th>Category</th>
                 <th>Author</th>
                 <th>Created</th>
@@ -22,6 +23,7 @@
                 <tr>
                     <td><img height="50px" src="{{ $post->photo ? $post->photo->file : 'http://placehold.it/50?text=No Photo' }}" alt=""></td>
                     <td><a href="{{ route('admin.posts.edit', $post->id) }}">{{ $post->title }}</a></td>
+                    <td>{{ str_limit($post->body, 20) }}</td>
                     <td>{{ $post->category ? $post->category->name : 'uncategorised' }}</td>
                     <td>{{ $post->user->name }}</td>
                     <td>{{ $post->created_at->diffForHumans() }}</td>
