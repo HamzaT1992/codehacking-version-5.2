@@ -46,7 +46,7 @@ class AdminPostsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            // 'category_id' => 'required',
+            'category_id' => 'required',
             'photo_id'    => 'required',
             'title'       => 'required',
             'body'        => 'required',
