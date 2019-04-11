@@ -1,7 +1,9 @@
 @extends('layouts.admin')
-
+@section('title')
+    - Medias
+@endsection
 @section('content')
-    <h1>Categories</h1>
+    <h1>Medias</h1>
     @if (Session::has('photo_deleted'))
         <p class="alert alert-success">{{ session('photo_deleted') }}</p>
     @endif

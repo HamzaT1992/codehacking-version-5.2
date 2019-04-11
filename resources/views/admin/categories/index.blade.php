@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('title')
+    - Categories
+@endsection
 @section('content')
     <h1>Categories</h1>
     @if (Session::has('category_deleted'))

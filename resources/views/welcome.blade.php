@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+{{-- TODO edit the welcome page --}}
 @section('content')
 <div class="container">
     <div class="row">
