@@ -54,7 +54,7 @@
                     @endphp
                     <a class="btn btn-primary {{ $repliesCount?'':'disabled' }}" href="{{ route('admin.comments.replies.show', $comment->id) }}">{{ $repliesCount }}</a>
                 </td>
-                <td><a href="{{ route('home.post', $comment->post_id) }}" class="btn btn-primary">view post</a></td>
+                <td><a href="{{ route('home.post', $comment->post->slug) }}" class="btn btn-primary">view post</a></td>
                 <td>   
                     {!! Form::open(['method' => 'DELETE', 'action' => ['PostCommentsController@destroy', $comment->id]]) !!}
                     <div class="form-group">

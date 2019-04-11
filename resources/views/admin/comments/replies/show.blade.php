@@ -45,7 +45,7 @@
                     {!! Form::close() !!}  
                     @endif
                 </td>
-                <td><a href="{{ route('home.post', $comment->post->id) }}" class="btn btn-primary">view post</a></td>
+                <td><a href="{{ route('home.post', $comment->post->slug) }}" class="btn btn-primary">view post</a></td>
                 <td>   
                     {!! Form::open(['method' => 'DELETE', 'action' => ['CommentRepliesController@destroy', $reply->id]]) !!}
                     <div class="form-group">

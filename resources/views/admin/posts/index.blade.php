@@ -39,11 +39,16 @@
                     <td>
                         <a class="btn btn-primary {{ $commentCount?'':'disabled' }}" href="{{ route('admin.comments.show', $post->id) }}">{{ $commentCount }}</a>
                     </td>
-                    <td><a href="{{ route('home.post', $post->id) }}" class="btn btn-success">view</a></td>
+                    <td><a href="{{ route('home.post', $post->slug) }}" class="btn btn-success">view</a></td>
                 </tr>
                 @endforeach
             @endif
             
         </tbody>
     </table>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-4">
+            {{ $posts->render() }}
+        </div>
+    </div>
 @endsection
