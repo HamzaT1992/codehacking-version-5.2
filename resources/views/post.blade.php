@@ -63,7 +63,7 @@
             @foreach ($comments as $comment)
             <div class="media">
                 <a class="pull-left" href="#">
-                    <img class="media-object" height="64" width="64" src="{{ $comment->photo?$comment->photo:'http://placehold.it/64x64' }}" alt="">
+                    <img class="media-object" height="64" width="64" src="{{ Gravatar::get($comment->email) }}" alt="">
                 </a>
                 <div class="media-body">
                     <h4 class="media-heading">{{ $comment->author }}
@@ -84,7 +84,7 @@
                         @endforeach
                         <div class="media">
                             <a class="pull-left" href="#">
-                                <img class="media-object" height="64" width="64" src="{{ $reply->photo?$reply->photo:'http://placehold.it/64x64' }}" alt="">
+                                <img class="media-object" height="64" width="64" src="{{ Gravatar::get($reply->email) }}" alt="">
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading">{{ $reply->author }}
