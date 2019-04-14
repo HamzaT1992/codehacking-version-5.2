@@ -52,7 +52,7 @@
                     @php
                         $repliesCount = $comment->replies->count();
                     @endphp
-                    <a class="btn btn-primary {{ $repliesCount?'':'disabled' }}" href="{{ route('admin.comments.replies.show', $comment->id) }}">{{ $repliesCount }}</a>
+                    <a class="btn btn-primary {{ $repliesCount?'':'disabled' }}" href="{{ route('admin.replies.show', $comment->id) }}">{{ $repliesCount }}</a>
                 </td>
                 <td><a href="{{ route('home.post', $comment->post->slug) }}" class="btn btn-primary">view post</a></td>
                 <td>   

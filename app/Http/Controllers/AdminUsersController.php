@@ -37,7 +37,7 @@ class AdminUsersController extends Controller
         // Role::all()->map(function($item) use (&$roles){
         //     $roles[$item->id] = $item->name;
         // });
-        $roles = Role::lists('name', 'id')->all();
+        $roles = Role::pluck('name', 'id')->all();
         // var_export($roles);
         return view('admin.users.create', compact('roles'));
     }
@@ -88,7 +88,7 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $roles = Role::lists('name', 'id')->all();
+        $roles = Role::pluck('name', 'id')->all();
         return view('admin.users.edit', compact('user', 'roles'));
     }
 
